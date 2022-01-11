@@ -17,7 +17,7 @@ class PhoneForm extends Component {
     //상태값을 onCreate를 통하여 부모에게 전달(app.js)
     this.props.onCreate(this.state);
     //상태 초기화
-    this.setState1({
+    this.setState({
       name: '',
       phone: ''
     })

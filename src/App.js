@@ -2,18 +2,39 @@ import React,{ Component } from "react";
 import PhoneForm from "./components/PhoneForm";
 
 class App extends Component{
-  onCreatetest = (data) => {
-    console.log(data);
+  id = 2
+  state = {
+    information: [
+      {
+        id: 0,
+        name: '김민준',
+        phone: '010-0000-0000'
+      },
+      {
+        id: 1,
+        name: '홍길동',
+        phone: '010-0000-0001'
+      }
+    ]
+  }
+  // onCreatetest = (data) => {
+  //   console.log(data);
+  // }
+  handleCreate = (data) => {
+    const { information } = this.state;
+    this.setState({
+      information: information.concat({ id: this.id++, ...data})
+    })
+    console.log(information);
   }
   render() {
     return (
       <div>
         <PhoneForm
-        onCreate={this.onCreatetest}/>
+        onCreate={this.handleCreate}/>
+        {JSON.stringify(this.state.information)}
       </div>
-    )
-
-    
+    );    
   }
 }
 
