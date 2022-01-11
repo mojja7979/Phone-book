@@ -28,13 +28,21 @@ class App extends Component{
     })
     console.log(information);
   }
+  handleRemove = (id) => {
+    const {information} = this.state;
+    console.log(information);
+    this.setState({
+      information: information.filter(info => info.id !== id)
+    })
+    console.log(information);
+  }
   render() {
     return (
       <div>
         <PhoneForm
         onCreate={this.handleCreate}/>
         {JSON.stringify(this.state.information)}
-        <PhoneInfoList data={this.state.information}/>
+        <PhoneInfoList data={this.state.information} onRemove={this.handleRemove}/>
       </div>
     );    
   }
